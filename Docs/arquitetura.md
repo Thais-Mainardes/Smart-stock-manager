@@ -188,3 +188,26 @@ O Smart Stock Manager será desenvolvido utilizando uma arquitetura em camadas, 
 │         BANCO DE DADOS      │
 │         SQL Server          │
 └─────────────────────────────┘
+
+## 7. Fluxo de movimentação de estoque
+
+As movimentações de estoque representam as entradas e saídas de produtos no sistema.
+
+O fluxo planejado é:
+
+```text
+Usuário
+   ↓
+Frontend
+   ↓
+Registro da movimentação
+   ↓
+Validação da operação
+   ↓
+Atualização do estoque
+   ↓
+Registro no histórico
+   ↓
+Dashboard
+   ↓
+Gráficos e análises
