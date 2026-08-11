@@ -434,3 +434,111 @@ function updateDashboardCards() {
 
 
 updateDashboardCards();
+
+function analyzeStock() {
+
+    const analysisContainer =
+        document.getElementById("stock-analysis");
+
+    const lowStockProducts =
+        products.filter(
+            product =>
+                product.stock <= product.minimumStock
+        );
+
+
+    const warningProducts =
+        products.filter(
+            product =>
+                product.stock > product.minimumStock &&
+                product.stock <= product.minimumStock * 1.5
+        );
+
+
+    let html = "";
+
+
+    if (lowStockProducts.length > 0) {
+
+        html += `
+            <div class="analysis-alert low">
+
+                <strong>
+                    🔴 Estoque baixo
+                </strong>
+
+                <ul>
+
+                    ${lowStockProducts.map(product => `
+                        <li>
+                            ${product.name}
+                            — estoque atual:
+                            ${product.stock}
+                            — mínimo:
+                            ${product.minimumStock}
+                        </li>
+                    `).join("")}
+
+                </ul>
+
+            </div>
+        `;
+
+    }
+
+
+    if (warningProducts.length > 0) {
+
+        html += `
+            <div class="analysis-alert warning">
+
+                <strong>
+                    🟠 Atenção
+                </strong>
+
+                <ul>
+
+                    ${warningProducts.map(product => `
+                        <li>
+                            ${product.name}
+                            está próximo do estoque mínimo.
+                        </li>
+                    `).join("")}
+
+                </ul>
+
+            </div>
+        `;
+
+    }
+
+
+    if (
+        lowStockProducts.length === 0 &&
+        warningProducts.length === 0
+    ) {
+
+        html = `
+            <div class="analysis-alert normal">
+
+                <strong>
+                    🟢 Estoque saudável
+                </strong>
+
+                <p>
+                    Nenhum produto está abaixo
+                    ou próximo do estoque mínimo.
+                </p>
+
+            </div>
+        `;
+
+    }
+
+
+    analysisContainer.innerHTML = html;
+
+}
+
+
+analyzeStock();
