@@ -79,3 +79,23 @@ Este documento registra as etapas de desenvolvimento do Smart Stock Manager, des
 - Conectar o backend ao banco de dados.
 - Desenvolver o frontend.
 - Implementar funcionalidades de Inteligência Artificial.
+
+## Autenticação
+
+A primeira versão do projeto possui uma tela de login desenvolvida em HTML, CSS e JavaScript.
+
+Nesta etapa, a autenticação é apenas uma simulação para desenvolvimento do frontend.
+
+As credenciais utilizadas atualmente são armazenadas diretamente no JavaScript e não devem ser utilizadas em produção.
+
+### Próxima etapa
+
+Quando o backend estiver disponível, a autenticação será migrada para uma API desenvolvida em C# e .NET.
+
+A autenticação real deverá:
+
+- Validar usuário e senha no backend.
+- Consultar os usuários no banco de dados.
+- Não armazenar senhas diretamente no frontend.
+- Utilizar autenticação segura.
+- Controlar permissões de acesso.
