@@ -9,9 +9,19 @@ function displayProducts() {
 
         const row = document.createElement("tr");
 
-        const status = product.stock <= product.minimumStock
-            ? "Estoque baixo"
-            : "Normal";
+       let status;
+       let statusClass;
+
+       if (product.stock <= product.minimumStock) {
+       status = "Estoque baixo";
+       statusClass = "status-low";
+       } else if (product.stock <= product.minimumStock * 1.5) {
+       status = "Atenção";
+       statusClass = "status-warning";
+       } else {
+       status = "Normal";
+       statusClass = "status-normal";
+}
 
         row.innerHTML = `
             <td>${product.code}</td>
@@ -23,7 +33,11 @@ function displayProducts() {
             <td>${product.category}</td>
             <td>${product.stock}</td>
             <td>${product.minimumStock}</td>
-            <td>${status}</td>
+            <td>
+            <span class="status ${statusClass}">
+            ${status}
+            </span>
+            </td>
             <td>
                 <button onclick="editProduct(${index})">
                     Editar
