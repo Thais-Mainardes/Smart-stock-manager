@@ -197,3 +197,11 @@ td {
 #product-form button {
     margin-top: 10px;
 }
+.delete-button {
+    background-color: #dc2626;
+    margin-left: 5px;
+}
+
+.delete-button:hover {
+    background-color: #b91c1c;
+}

@@ -30,11 +30,12 @@ const products = [
 ];
 
 function displayProducts() {
+
     const productList = document.getElementById("product-list");
 
     productList.innerHTML = "";
 
-    products.forEach(product => {
+    products.forEach((product, index) => {
 
         const row = document.createElement("tr");
 
@@ -49,6 +50,18 @@ function displayProducts() {
             <td>${product.stock}</td>
             <td>${product.minimumStock}</td>
             <td>${status}</td>
+            <td>
+                <button onclick="editProduct(${index})">
+                    Editar
+                </button>
+
+                <button
+                    onclick="deleteProduct(${index})"
+                    class="delete-button"
+                >
+                    Excluir
+                </button>
+            </td>
         `;
 
         productList.appendChild(row);
@@ -134,3 +147,64 @@ productForm.addEventListener("submit", (event) => {
     productModal.style.display = "none";
 
 });
+function editProduct(index) {
+
+    const product = products[index];
+
+    const newName = prompt(
+        "Nome do produto:",
+        product.name
+    );
+
+    if (newName === null) {
+        return;
+    }
+
+    const newStock = prompt(
+        "Estoque atual:",
+        product.stock
+    );
+
+    if (newStock === null) {
+        return;
+    }
+
+    const newMinimumStock = prompt(
+        "Estoque mínimo:",
+        product.minimumStock
+    );
+
+    if (newMinimumStock === null) {
+        return;
+    }
+
+    product.name = newName;
+
+    product.stock = Number(newStock);
+
+    product.minimumStock = Number(newMinimumStock);
+
+    displayProducts();
+
+    updateDashboard();
+}
+
+
+function deleteProduct(index) {
+
+    const product = products[index];
+
+    const confirmed = confirm(
+        `Deseja realmente excluir o produto "${product.name}"?`
+    );
+
+    if (!confirmed) {
+        return;
+    }
+
+    products.splice(index, 1);
+
+    displayProducts();
+
+    updateDashboard();
+}
