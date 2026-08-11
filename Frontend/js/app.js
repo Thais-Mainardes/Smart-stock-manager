@@ -196,3 +196,82 @@ function deleteProduct(index) {
 
     updateDashboard();
 }
+function createCharts() {
+
+    const productNames = products.map(
+        product => product.name
+    );
+
+    const stockValues = products.map(
+        product => product.stock
+    );
+
+
+    const normalProducts = products.filter(
+        product => product.stock > product.minimumStock
+    ).length;
+
+
+    const lowStockProducts = products.filter(
+        product => product.stock <= product.minimumStock
+    ).length;
+
+
+    new Chart(
+        document.getElementById("stock-chart"),
+        {
+            type: "bar",
+
+            data: {
+                labels: productNames,
+
+                datasets: [
+                    {
+                        label: "Quantidade em estoque",
+                        data: stockValues
+                    }
+                ]
+            },
+
+            options: {
+                responsive: true,
+
+                maintainAspectRatio: false
+            }
+        }
+    );
+
+
+    new Chart(
+        document.getElementById("status-chart"),
+        {
+            type: "doughnut",
+
+            data: {
+                labels: [
+                    "Normal",
+                    "Estoque baixo"
+                ],
+
+                datasets: [
+                    {
+                        data: [
+                            normalProducts,
+                            lowStockProducts
+                        ]
+                    }
+                ]
+            },
+
+            options: {
+                responsive: true,
+
+                maintainAspectRatio: false
+            }
+        }
+    );
+
+}
+
+
+createCharts();
