@@ -1,4 +1,4 @@
-const movements = [
+const defaultMovements = [
     {
         date: "11/08/2026",
         product: "Notebook",
@@ -14,6 +14,21 @@ const movements = [
         description: "Entrega para funcionário"
     }
 ];
+
+
+let movements =
+    JSON.parse(localStorage.getItem("movements")) ||
+    defaultMovements;
+
+
+function saveMovements() {
+
+    localStorage.setItem(
+        "movements",
+        JSON.stringify(movements)
+    );
+
+}
 
 
 function displayMovements() {
@@ -46,6 +61,9 @@ function loadProducts() {
 
     const productSelect =
         document.getElementById("movement-product");
+
+    productSelect.innerHTML =
+        '<option value="">Selecione um produto</option>';
 
     products.forEach(product => {
 
@@ -126,6 +144,15 @@ movementForm.addEventListener("submit", event => {
     }
 
 
+    if (quantity <= 0) {
+
+        alert("A quantidade deve ser maior que zero.");
+
+        return;
+
+    }
+
+
     if (type === "EXIT" && quantity > product.stock) {
 
         alert(
@@ -168,8 +195,9 @@ movementForm.addEventListener("submit", event => {
     });
 
 
-    displayMovements();
+    saveMovements();
 
+    displayMovements();
 
     movementForm.reset();
 
