@@ -75,3 +75,62 @@ function updateDashboard() {
 displayProducts();
 
 updateDashboard();
+const addProductButton = document.getElementById("add-product");
+
+const productModal = document.getElementById("product-modal");
+
+const closeModalButton = document.getElementById("close-modal");
+
+const productForm = document.getElementById("product-form");
+
+
+addProductButton.addEventListener("click", () => {
+
+    productModal.style.display = "flex";
+
+});
+
+
+closeModalButton.addEventListener("click", () => {
+
+    productModal.style.display = "none";
+
+});
+
+
+productForm.addEventListener("submit", (event) => {
+
+    event.preventDefault();
+
+    const newProduct = {
+
+        code: document.getElementById("product-code").value,
+
+        name: document.getElementById("product-name").value,
+
+        category: document.getElementById("product-category").value,
+
+        stock: Number(
+            document.getElementById("product-stock").value
+        ),
+
+        minimumStock: Number(
+            document.getElementById("product-minimum").value
+        )
+
+    };
+
+
+    products.push(newProduct);
+
+
+    displayProducts();
+
+    updateDashboard();
+
+
+    productForm.reset();
+
+    productModal.style.display = "none";
+
+});
