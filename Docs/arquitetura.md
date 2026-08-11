@@ -110,3 +110,53 @@ recomendação
      C#
       ↓
     frontend
+    ## 5. API
+
+A comunicação entre o frontend e o backend será realizada por meio de uma API REST.
+
+A API será responsável por receber as requisições do frontend, processar as regras de negócio e retornar os dados necessários.
+
+### Principais recursos
+
+- Usuários
+- Produtos
+- Categorias
+- Fornecedores
+- Movimentações de estoque
+### Endpoints de Produtos
+
+| Método | Endpoint | Descrição |
+|---|---|---|
+| GET | /api/products | Lista todos os produtos |
+| GET | /api/products/{id} | Busca um produto específico |
+| POST | /api/products | Cadastra um novo produto |
+| PUT | /api/products/{id} | Atualiza um produto |
+| DELETE | /api/products/{id} | Remove um produto |
+
+### Endpoints de Categorias
+
+| Método | Endpoint | Descrição |
+|---|---|---|
+| GET | /api/categories | Lista todas as categorias |
+| GET | /api/categories/{id} | Busca uma categoria |
+| POST | /api/categories | Cadastra uma categoria |
+| PUT | /api/categories/{id} | Atualiza uma categoria |
+| DELETE | /api/categories/{id} | Remove uma categoria |
+
+### Endpoints de Fornecedores
+
+| Método | Endpoint | Descrição |
+|---|---|---|
+| GET | /api/suppliers | Lista todos os fornecedores |
+| GET | /api/suppliers/{id} | Busca um fornecedor |
+| POST | /api/suppliers | Cadastra um fornecedor |
+| PUT | /api/suppliers/{id} | Atualiza um fornecedor |
+| DELETE | /api/suppliers/{id} | Remove um fornecedor |
+
+### Endpoints de Movimentações
+
+| Método | Endpoint | Descrição |
+|---|---|---|
+| GET | /api/stock-movements | Lista movimentações |
+| GET | /api/stock-movements/{id} | Busca uma movimentação |
+| POST | /api/stock-movements | Registra uma movimentação |
