@@ -58,3 +58,24 @@ Este documento registra as etapas de desenvolvimento do Smart Stock Manager, des
 - Melhorias de desempenho.
 - Melhorias na interface.
 - Atualização da documentação.
+## 3. Status atual
+
+### Concluído
+
+- Estrutura inicial do projeto criada.
+- README.md criado.
+- .gitignore configurado.
+- Documentação inicial criada.
+- Arquitetura do sistema definida.
+- Modelo inicial do banco de dados definido.
+- Script SQL inicial criado.
+- Repositório conectado ao GitHub.
+
+### Próximos passos
+
+- Configurar o ambiente .NET.
+- Criar a API backend.
+- Criar os endpoints da aplicação.
+- Conectar o backend ao banco de dados.
+- Desenvolver o frontend.
+- Implementar funcionalidades de Inteligência Artificial.
