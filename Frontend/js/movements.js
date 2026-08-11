@@ -19,6 +19,21 @@ const defaultMovements = [
 let movements =
     JSON.parse(localStorage.getItem("movements")) ||
     defaultMovements;
+    const savedProducts =
+    localStorage.getItem("products");
+
+if (savedProducts) {
+
+    const storedProducts =
+        JSON.parse(savedProducts);
+
+    products.splice(
+        0,
+        products.length,
+        ...storedProducts
+    );
+
+}
 
 
 function saveMovements() {
@@ -196,6 +211,11 @@ movementForm.addEventListener("submit", event => {
 
 
     saveMovements();
+    
+    localStorage.setItem(
+    "products",
+    JSON.stringify(products)
+    );
 
     displayMovements();
 
@@ -214,3 +234,8 @@ movementForm.addEventListener("submit", event => {
 displayMovements();
 
 loadProducts();
+
+localStorage.setItem(
+    "products",
+    JSON.stringify(products)
+);

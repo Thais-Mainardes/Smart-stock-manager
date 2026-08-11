@@ -1,4 +1,18 @@
+const savedProducts =
+    localStorage.getItem("products");
 
+if (savedProducts) {
+
+    const storedProducts =
+        JSON.parse(savedProducts);
+
+    products.splice(
+        0,
+        products.length,
+        ...storedProducts
+    );
+
+}
 function displayProducts() {
 
     const productList = document.getElementById("product-list");
@@ -275,3 +289,53 @@ function createCharts() {
 
 
 createCharts();
+function updateDashboardCards() {
+
+    const totalProducts =
+        products.length;
+
+
+    const totalStock =
+        products.reduce(
+            (total, product) =>
+                total + product.stock,
+            0
+        );
+
+
+    const lowStock =
+        products.filter(
+            product =>
+                product.stock <= product.minimumStock
+        ).length;
+
+
+    const movements =
+        JSON.parse(
+            localStorage.getItem("movements")
+        ) || [];
+
+
+    document.getElementById(
+        "total-products"
+    ).textContent = totalProducts;
+
+
+    document.getElementById(
+        "total-stock"
+    ).textContent = totalStock;
+
+
+    document.getElementById(
+        "low-stock"
+    ).textContent = lowStock;
+
+
+    document.getElementById(
+        "total-movements"
+    ).textContent = movements.length;
+
+}
+
+
+updateDashboardCards();
