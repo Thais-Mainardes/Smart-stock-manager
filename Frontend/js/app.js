@@ -15,7 +15,11 @@ function displayProducts() {
 
         row.innerHTML = `
             <td>${product.code}</td>
-            <td>${product.name}</td>
+            <td>
+            <a href="product.html?code=${product.code}">
+            ${product.name}
+            </a>
+            </td>
             <td>${product.category}</td>
             <td>${product.stock}</td>
             <td>${product.minimumStock}</td>

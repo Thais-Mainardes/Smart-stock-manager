@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Produto - Smart Stock Manager</title>
+
+    <link
+        rel="stylesheet"
+        href="css/style.css"
+    >
+
+</head>
+
+<body>
+
+    <header class="header">
+
+        <div>
+            <h1>Smart Stock Manager</h1>
+            <p>Gerenciamento inteligente de estoque</p>
+        </div>
+
+        <nav class="navigation">
+
+            <a href="index.html">
+                Dashboard
+            </a>
+
+            <a href="movements.html">
+                Movimentações
+            </a>
+
+        </nav>
+
+    </header>
+
+
+    <main class="container">
+
+        <section class="products">
+
+            <div class="section-header">
+
+                <h2>Detalhes do produto</h2>
+
+                <a href="index.html">
+                    <button>
+                        Voltar
+                    </button>
+                </a>
+
+            </div>
+
+
+            <div class="card">
+
+                <h3 id="product-name">
+                    Produto
+                </h3>
+
+                <p>
+                    <strong>Código:</strong>
+                    <span id="product-code"></span>
+                </p>
+
+                <p>
+                    <strong>Categoria:</strong>
+                    <span id="product-category"></span>
+                </p>
+
+                <p>
+                    <strong>Estoque atual:</strong>
+                    <span id="product-stock"></span>
+                </p>
+
+                <p>
+                    <strong>Estoque mínimo:</strong>
+                    <span id="product-minimum"></span>
+                </p>
+
+                <p>
+                    <strong>Status:</strong>
+                    <span id="product-status"></span>
+                </p>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <script src="data/products.js"></script>
+    <script src="js/product.js"></script>
+
+</body>
+
+</html>
