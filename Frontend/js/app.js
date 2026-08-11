@@ -212,6 +212,101 @@ function deleteProduct(index) {
 }
 function createCharts() {
 
+    function createMovementChart() {
+
+    const movements =
+        JSON.parse(
+            localStorage.getItem("movements")
+        ) || [];
+
+
+    const dates = [
+        ...new Set(
+            movements.map(
+                movement => movement.date
+            )
+        )
+    ];
+
+
+    const entries = dates.map(date => {
+
+        return movements
+            .filter(
+                movement =>
+                    movement.date === date &&
+                    movement.type === "Entrada"
+            )
+            .reduce(
+                (total, movement) =>
+                    total + movement.quantity,
+                0
+            );
+
+    });
+
+
+    const exits = dates.map(date => {
+
+        return movements
+            .filter(
+                movement =>
+                    movement.date === date &&
+                    movement.type === "Saída"
+            )
+            .reduce(
+                (total, movement) =>
+                    total + movement.quantity,
+                0
+            );
+
+    });
+
+
+    new Chart(
+        document.getElementById("movement-chart"),
+        {
+
+            type: "line",
+
+            data: {
+
+                labels: dates,
+
+                datasets: [
+
+                    {
+                        label: "Entradas",
+                        data: entries,
+                        tension: 0.3
+                    },
+
+                    {
+                        label: "Saídas",
+                        data: exits,
+                        tension: 0.3
+                    }
+
+                ]
+
+            },
+
+            options: {
+
+                responsive: true,
+
+                maintainAspectRatio: false
+
+            }
+
+        }
+    );
+
+}
+
+
+createMovementChart();
+
     const productNames = products.map(
         product => product.name
     );
