@@ -160,3 +160,31 @@ A API será responsável por receber as requisições do frontend, processar as 
 | GET | /api/stock-movements | Lista movimentações |
 | GET | /api/stock-movements/{id} | Busca uma movimentação |
 | POST | /api/stock-movements | Registra uma movimentação |
+
+## 6. Arquitetura da aplicação
+
+O Smart Stock Manager será desenvolvido utilizando uma arquitetura em camadas, separando a interface, as regras de negócio e o acesso aos dados.
+
+### Visão geral
+
+```text
+┌─────────────────────────────┐
+│          FRONTEND           │
+│       HTML / CSS / JS       │
+└──────────────┬──────────────┘
+               │
+               │ HTTP / REST
+               ▼
+┌─────────────────────────────┐
+│           BACKEND           │
+│         C# / .NET           │
+│                             │
+│     Regras de negócio       │
+└──────────────┬──────────────┘
+               │
+               │ SQL
+               ▼
+┌─────────────────────────────┐
+│         BANCO DE DADOS      │
+│         SQL Server          │
+└─────────────────────────────┘

@@ -235,3 +235,51 @@ td {
 .navigation a:hover {
     background-color: #374151;
 }
+/* LOGIN */
+
+.login-page {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.login-container {
+    width: 100%;
+    max-width: 400px;
+    padding: 20px;
+}
+
+.login-card {
+    background-color: white;
+    padding: 35px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.login-card h1 {
+    margin-bottom: 8px;
+}
+
+.login-subtitle {
+    color: #6b7280;
+    margin-bottom: 25px;
+}
+
+#login-form {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+#login-form input {
+    padding: 12px;
+    border: 1px solid #d1d5db;
+    border-radius: 6px;
+    margin-bottom: 12px;
+}
+
+#login-message {
+    margin-top: 15px;
+    text-align: center;
+}
