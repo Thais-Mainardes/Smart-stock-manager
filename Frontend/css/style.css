@@ -1413,3 +1413,147 @@ button:active,
     font-size: 12px;
     font-weight: 600;
 }
+/* =========================================
+   FORNECEDORES
+========================================= */
+
+#supplier-form {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+#supplier-form input {
+    padding: 12px;
+
+    border: 1px solid #d1d5db;
+
+    border-radius: 6px;
+
+    margin-bottom: 10px;
+
+    font-size: 14px;
+
+    outline: none;
+}
+
+#supplier-form input:focus {
+    border-color: #2563eb;
+}
+
+#supplier-form button {
+    margin-top: 10px;
+}
+
+
+/* BOTÃO PRINCIPAL */
+
+.primary-button {
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border: none;
+
+    background-color: #2563eb;
+
+    color: #ffffff;
+
+    padding: 12px 18px;
+
+    border-radius: 7px;
+
+    cursor: pointer;
+
+    font-size: 14px;
+
+    font-weight: 600;
+
+    text-decoration: none;
+
+    transition: 0.2s;
+}
+
+.primary-button:hover {
+    background-color: #1d4ed8;
+}
+
+
+/* CABEÇALHO DA PÁGINA */
+
+.page-header {
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    margin-bottom: 25px;
+}
+
+.page-header h2 {
+    margin: 0;
+
+    color: #111827;
+
+    font-size: 22px;
+}
+
+.page-header p {
+    margin-top: 5px;
+
+    color: #6b7280;
+
+    font-size: 13px;
+}
+
+
+/* CARD DA TABELA */
+
+.table-card {
+    background-color: #ffffff;
+
+    border-radius: 10px;
+
+    box-shadow:
+        0 2px 8px
+        rgba(0, 0, 0, 0.06);
+
+    overflow: hidden;
+}
+
+.table-header {
+    padding: 20px 24px;
+
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.table-header h3 {
+    margin: 0 0 5px;
+
+    font-size: 16px;
+
+    color: #111827;
+}
+
+.table-header span {
+    color: #6b7280;
+
+    font-size: 13px;
+}
+
+
+/* RESPONSIVIDADE */
+
+@media (max-width: 700px) {
+
+    .page-header {
+        flex-direction: column;
+
+        align-items: flex-start;
+
+        gap: 15px;
+    }
+
+}

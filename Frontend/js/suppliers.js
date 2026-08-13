@@ -1,48 +1,21 @@
 // =========================================
 // SMART STOCK MANAGER
-// SUPPLIERS.JS
+// FORNECEDORES
 // =========================================
 
 
 // =========================================
-// FORNECEDORES INICIAIS
-// =========================================
-
-const defaultSuppliers = [
-
-    {
-        code: "FOR001",
-        name: "Tech Solutions",
-        cnpj: "00.000.000/0001-00",
-        phone: "(41) 99999-9999",
-        email: "contato@techsolutions.com",
-        status: "Ativo"
-    },
-
-    {
-        code: "FOR002",
-        name: "ABC Eletrônicos",
-        cnpj: "11.111.111/0001-11",
-        phone: "(41) 98888-8888",
-        email: "contato@abceletronicos.com",
-        status: "Ativo"
-    }
-
-];
-
-
-// =========================================
-// CARREGAMENTO
+// DADOS DOS FORNECEDORES
 // =========================================
 
 let suppliers =
     JSON.parse(
         localStorage.getItem("suppliers")
-    ) || defaultSuppliers;
+    ) || [];
 
 
 // =========================================
-// SALVAR
+// PERSISTÊNCIA
 // =========================================
 
 function saveSuppliers() {
@@ -56,7 +29,7 @@ function saveSuppliers() {
 
 
 // =========================================
-// LISTAR FORNECEDORES
+// LISTAGEM
 // =========================================
 
 function displaySuppliers() {
@@ -73,17 +46,40 @@ function displaySuppliers() {
     supplierList.innerHTML = "";
 
 
+    if (suppliers.length === 0) {
+
+        supplierList.innerHTML = `
+            <tr>
+                <td
+                    colspan="6"
+                    style="text-align: center;"
+                >
+                    Nenhum fornecedor cadastrado.
+                </td>
+            </tr>
+        `;
+
+        return;
+    }
+
+
     suppliers.forEach(
-        (supplier, index) => {
+        supplier => {
 
             const row =
                 document.createElement("tr");
 
 
             const statusClass =
-                supplier.status === "Ativo"
+                supplier.active
                     ? "status-normal"
                     : "status-low";
+
+
+            const statusLabel =
+                supplier.active
+                    ? "Ativo"
+                    : "Inativo";
 
 
             row.innerHTML = `
@@ -93,9 +89,7 @@ function displaySuppliers() {
                 </td>
 
                 <td>
-                    <strong>
-                        ${supplier.name}
-                    </strong>
+                    ${supplier.name}
                 </td>
 
                 <td>
@@ -115,19 +109,8 @@ function displaySuppliers() {
                     <span
                         class="status ${statusClass}"
                     >
-                        ${supplier.status}
+                        ${statusLabel}
                     </span>
-
-                </td>
-
-                <td>
-
-                    <button
-                        onclick="deleteSupplier(${index})"
-                        class="delete-button"
-                    >
-                        Excluir
-                    </button>
 
                 </td>
 
@@ -143,53 +126,12 @@ function displaySuppliers() {
 
 
 // =========================================
-// DASHBOARD
-// =========================================
-
-function updateSupplierDashboard() {
-
-    const total =
-        suppliers.length;
-
-
-    const active =
-        suppliers.filter(
-            supplier =>
-                supplier.status === "Ativo"
-        ).length;
-
-
-    const inactive =
-        suppliers.filter(
-            supplier =>
-                supplier.status === "Inativo"
-        ).length;
-
-
-    document.getElementById(
-        "total-suppliers"
-    ).textContent = total;
-
-
-    document.getElementById(
-        "active-suppliers"
-    ).textContent = active;
-
-
-    document.getElementById(
-        "inactive-suppliers"
-    ).textContent = inactive;
-
-}
-
-
-// =========================================
 // MODAL
 // =========================================
 
-const addSupplierButton =
+const newSupplierButton =
     document.getElementById(
-        "add-supplier"
+        "new-supplier"
     );
 
 
@@ -211,12 +153,14 @@ const supplierForm =
     );
 
 
+// ABRIR
+
 if (
-    addSupplierButton &&
+    newSupplierButton &&
     supplierModal
 ) {
 
-    addSupplierButton.addEventListener(
+    newSupplierButton.addEventListener(
         "click",
         () => {
 
@@ -228,6 +172,8 @@ if (
 
 }
 
+
+// FECHAR
 
 if (
     closeSupplierModal &&
@@ -290,12 +236,6 @@ if (supplierForm) {
                 ).value.trim();
 
 
-            const status =
-                document.getElementById(
-                    "supplier-status"
-                ).value;
-
-
             const existingSupplier =
                 suppliers.find(
                     supplier =>
@@ -316,12 +256,17 @@ if (supplierForm) {
 
             suppliers.push({
 
-                code,
-                name,
-                cnpj,
-                phone,
-                email,
-                status
+                code: code,
+
+                name: name,
+
+                cnpj: cnpj,
+
+                phone: phone,
+
+                email: email,
+
+                active: true
 
             });
 
@@ -330,11 +275,7 @@ if (supplierForm) {
 
             displaySuppliers();
 
-            updateSupplierDashboard();
-
-
             supplierForm.reset();
-
 
             supplierModal.style.display =
                 "none";
@@ -351,52 +292,7 @@ if (supplierForm) {
 
 
 // =========================================
-// EXCLUSÃO
-// =========================================
-
-function deleteSupplier(index) {
-
-    const supplier =
-        suppliers[index];
-
-
-    if (!supplier) {
-        return;
-    }
-
-
-    const confirmed =
-        confirm(
-            `Deseja realmente excluir o fornecedor "${supplier.name}"?`
-        );
-
-
-    if (!confirmed) {
-        return;
-    }
-
-
-    suppliers.splice(
-        index,
-        1
-    );
-
-
-    saveSuppliers();
-
-    displaySuppliers();
-
-    updateSupplierDashboard();
-
-}
-
-
-// =========================================
 // INICIALIZAÇÃO
 // =========================================
 
-saveSuppliers();
-
 displaySuppliers();
-
-updateSupplierDashboard();
