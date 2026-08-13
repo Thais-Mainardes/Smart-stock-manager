@@ -99,3 +99,58 @@ A autenticação real deverá:
 - Não armazenar senhas diretamente no frontend.
 - Utilizar autenticação segura.
 - Controlar permissões de acesso.
+
+## Módulo de Fornecedores
+
+Foi criada a primeira versão do módulo de gerenciamento de fornecedores do Smart Stock Manager.
+
+### Funcionalidades implementadas
+
+- Listagem de fornecedores
+- Cadastro de fornecedores
+- Exclusão de fornecedores
+- Identificação de fornecedores ativos e inativos
+- Contadores de fornecedores
+- Modal para cadastro
+- Persistência dos dados utilizando localStorage
+- Integração com a identidade visual do sistema
+
+### Dados cadastrados
+
+Cada fornecedor possui:
+
+- Código
+- Nome
+- CNPJ
+- Telefone
+- E-mail
+- Status
+
+### Persistência
+
+Nesta etapa, os fornecedores são armazenados localmente utilizando `localStorage`.
+
+Essa implementação é temporária e faz parte da versão frontend do projeto.
+
+Posteriormente, o módulo será integrado à API desenvolvida em C#/.NET e ao banco de dados SQL Server.
+
+### Estrutura
+
+O módulo foi separado em:
+
+`Frontend/suppliers.html`
+
+Responsável pela interface de gerenciamento dos fornecedores.
+
+`Frontend/js/suppliers.js`
+
+Responsável pela lógica de cadastro, exclusão, listagem e persistência dos fornecedores.
+
+### Próximas evoluções
+
+- Edição de fornecedores
+- Relacionamento entre fornecedores e produtos
+- Histórico de fornecimento
+- Busca e filtros
+- Integração com backend
+- Persistência em SQL Server

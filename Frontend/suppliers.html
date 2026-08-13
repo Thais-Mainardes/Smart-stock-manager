@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Fornecedores - Smart Stock Manager</title>
+
+    <link
+        rel="stylesheet"
+        href="css/style.css"
+    >
+
+</head>
+
+<body>
+
+<div class="app-layout">
+
+    <!-- SIDEBAR -->
+
+    <aside class="sidebar">
+
+        <div class="sidebar-logo">
+
+            <h2>
+                Smart Stock
+            </h2>
+
+            <span>
+                Management System
+            </span>
+
+        </div>
+
+
+        <nav class="sidebar-menu">
+
+            <a
+                href="index.html"
+                class="menu-item"
+            >
+                <span>▦</span>
+                <span class="menu-text">Início</span>
+            </a>
+
+
+            <a
+                href="products.html"
+                class="menu-item"
+            >
+                <span>▣</span>
+                <span class="menu-text">Produtos</span>
+            </a>
+
+
+            <a
+                href="movements.html"
+                class="menu-item"
+            >
+                <span>↕</span>
+                <span class="menu-text">Movimentações</span>
+            </a>
+
+
+            <a
+                href="suppliers.html"
+                class="menu-item active"
+            >
+                <span>▤</span>
+                <span class="menu-text">Fornecedores</span>
+            </a>
+
+
+            <a
+                href="#"
+                class="menu-item"
+            >
+                <span>◫</span>
+                <span class="menu-text">Relatórios</span>
+            </a>
+
+
+            <a
+                href="#"
+                class="menu-item"
+            >
+                <span>⚙</span>
+                <span class="menu-text">Configurações</span>
+            </a>
+
+        </nav>
+
+
+        <div class="sidebar-footer">
+
+            Smart Stock Manager
+
+            <small>
+                v1.0.0
+            </small>
+
+        </div>
+
+    </aside>
+
+
+    <!-- CONTEÚDO PRINCIPAL -->
+
+    <div class="main-content">
+
+
+        <!-- TOPBAR -->
+
+        <header class="topbar">
+
+            <div>
+
+                <span class="breadcrumb">
+                    Sistema / Fornecedores
+                </span>
+
+                <h1>
+                    Fornecedores
+                </h1>
+
+            </div>
+
+
+            <div class="user-area">
+
+                <div class="user-avatar">
+                    A
+                </div>
+
+
+                <div class="user-info">
+
+                    <strong>
+                        Administrador
+                    </strong>
+
+                    <span>
+                        Administrador
+                    </span>
+
+                </div>
+
+            </div>
+
+        </header>
+
+
+        <!-- CONTEÚDO -->
+
+        <main class="dashboard-content">
+
+
+            <!-- CABEÇALHO DA PÁGINA -->
+
+            <section class="page-header">
+
+                <div>
+
+                    <h2>
+                        Gestão de fornecedores
+                    </h2>
+
+                    <p>
+                        Cadastre e gerencie os fornecedores
+                        utilizados pelo estoque.
+                    </p>
+
+                </div>
+
+
+                <button
+                    id="add-supplier"
+                    class="primary-button"
+                >
+                    + Novo fornecedor
+                </button>
+
+            </section>
+
+
+            <!-- RESUMO -->
+
+            <section class="dashboard-cards">
+
+
+                <div class="dashboard-card">
+
+                    <div class="card-icon blue">
+                        🏢
+                    </div>
+
+                    <div class="card-content">
+
+                        <span class="card-title">
+                            Total de fornecedores
+                        </span>
+
+                        <strong id="total-suppliers">
+                            0
+                        </strong>
+
+                    </div>
+
+                </div>
+
+
+                <div class="dashboard-card">
+
+                    <div class="card-icon green">
+                        ✓
+                    </div>
+
+                    <div class="card-content">
+
+                        <span class="card-title">
+                            Fornecedores ativos
+                        </span>
+
+                        <strong id="active-suppliers">
+                            0
+                        </strong>
+
+                    </div>
+
+                </div>
+
+
+                <div class="dashboard-card">
+
+                    <div class="card-icon orange">
+                        ⚠
+                    </div>
+
+                    <div class="card-content">
+
+                        <span class="card-title">
+                            Fornecedores inativos
+                        </span>
+
+                        <strong id="inactive-suppliers">
+                            0
+                        </strong>
+
+                    </div>
+
+                </div>
+
+
+            </section>
+
+
+            <!-- TABELA DE FORNECEDORES -->
+
+            <section class="products-section">
+
+
+                <div class="section-header">
+
+                    <div>
+
+                        <h2>
+                            Lista de fornecedores
+                        </h2>
+
+                        <p>
+                            Fornecedores cadastrados no sistema.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="table-container">
+
+                    <table>
+
+                        <thead>
+
+                            <tr>
+
+                                <th>
+                                    Código
+                                </th>
+
+                                <th>
+                                    Fornecedor
+                                </th>
+
+                                <th>
+                                    CNPJ
+                                </th>
+
+                                <th>
+                                    Telefone
+                                </th>
+
+                                <th>
+                                    E-mail
+                                </th>
+
+                                <th>
+                                    Status
+                                </th>
+
+                                <th>
+                                    Ações
+                                </th>
+
+                            </tr>
+
+                        </thead>
+
+
+                        <tbody id="supplier-list">
+
+                            <!--
+                                Fornecedores serão
+                                inseridos pelo JavaScript.
+                            -->
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+            </section>
+
+        </main>
+
+    </div>
+
+</div>
+
+
+<!-- MODAL DE FORNECEDOR -->
+
+<div
+    id="supplier-modal"
+    class="modal"
+>
+
+    <div class="modal-content">
+
+
+        <div class="modal-header">
+
+            <div>
+
+                <h2>
+                    Novo fornecedor
+                </h2>
+
+                <p>
+                    Cadastre um novo fornecedor.
+                </p>
+
+            </div>
+
+
+            <button
+                id="close-supplier-modal"
+                class="close-button"
+                type="button"
+            >
+                ×
+            </button>
+
+        </div>
+
+
+        <form id="supplier-form">
+
+
+            <label for="supplier-code">
+                Código
+            </label>
+
+            <input
+                type="text"
+                id="supplier-code"
+                placeholder="Ex: FOR001"
+                required
+            >
+
+
+            <label for="supplier-name">
+                Nome do fornecedor
+            </label>
+
+            <input
+                type="text"
+                id="supplier-name"
+                placeholder="Ex: Tech Solutions"
+                required
+            >
+
+
+            <label for="supplier-cnpj">
+                CNPJ
+            </label>
+
+            <input
+                type="text"
+                id="supplier-cnpj"
+                placeholder="00.000.000/0001-00"
+                required
+            >
+
+
+            <label for="supplier-phone">
+                Telefone
+            </label>
+
+            <input
+                type="tel"
+                id="supplier-phone"
+                placeholder="(41) 99999-9999"
+                required
+            >
+
+
+            <label for="supplier-email">
+                E-mail
+            </label>
+
+            <input
+                type="email"
+                id="supplier-email"
+                placeholder="contato@empresa.com"
+                required
+            >
+
+
+            <label for="supplier-status">
+                Status
+            </label>
+
+            <select
+                id="supplier-status"
+                required
+            >
+
+                <option value="">
+                    Selecione o status
+                </option>
+
+                <option value="Ativo">
+                    Ativo
+                </option>
+
+                <option value="Inativo">
+                    Inativo
+                </option>
+
+            </select>
+
+
+            <button
+                type="submit"
+                class="primary-button"
+            >
+                Cadastrar fornecedor
+            </button>
+
+
+        </form>
+
+    </div>
+
+</div>
+
+
+<!-- JAVASCRIPT -->
+
+<script src="js/suppliers.js"></script>
+
+</body>
+
+</html>
