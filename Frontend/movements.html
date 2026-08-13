@@ -21,58 +21,102 @@
 
 <body>
 
-    <div class="app-layout">
+<div class="app-layout">
+
+    <!-- SIDEBAR -->
 
     <aside class="sidebar">
 
         <div class="sidebar-logo">
-            <h2>Smart Stock</h2>
-            <span>Management System</span>
+
+            <h2>
+                Smart Stock
+            </h2>
+
+            <span>
+                Management System
+            </span>
+
         </div>
+
 
         <nav class="sidebar-menu">
 
-            <a href="index.html" class="menu-item">
+            <a
+                href="index.html"
+                class="menu-item"
+            >
                 <span>▦</span>
-                Dashboard
+                Início
             </a>
 
-            <a href="#" class="menu-item">
+
+            <a
+                href="products.html"
+                class="menu-item"
+            >
                 <span>▣</span>
                 Produtos
             </a>
 
-            <a href="movements.html" class="menu-item active">
+
+            <a
+                href="movements.html"
+                class="menu-item active"
+            >
                 <span>↕</span>
                 Movimentações
             </a>
 
-            <a href="#" class="menu-item">
+
+            <a
+                href="#"
+                class="menu-item"
+            >
                 <span>▤</span>
                 Fornecedores
             </a>
 
-            <a href="#" class="menu-item">
+
+            <a
+                href="#"
+                class="menu-item"
+            >
                 <span>◫</span>
                 Relatórios
             </a>
 
-            <a href="#" class="menu-item">
+
+            <a
+                href="#"
+                class="menu-item"
+            >
                 <span>⚙</span>
                 Configurações
             </a>
 
         </nav>
 
+
         <div class="sidebar-footer">
+
             Smart Stock Manager
-            <small>v1.0.0</small>
+
+            <small>
+                v1.0.0
+            </small>
+
         </div>
 
     </aside>
 
 
+    <!-- CONTEÚDO PRINCIPAL -->
+
     <div class="main-content">
+
+
+        <!-- TOPBAR -->
 
         <header class="topbar">
 
@@ -95,6 +139,7 @@
                     A
                 </div>
 
+
                 <div class="user-info">
 
                     <strong>
@@ -112,74 +157,188 @@
         </header>
 
 
+        <!-- CONTEÚDO -->
+
         <main class="dashboard-content">
 
-    <header class="header">
 
-    <div>
-        <h1>Smart Stock Manager</h1>
-        <p>Gerenciamento Inteligente de Estoque</p>
-    </div>
+            <div class="product-page-header">
 
-    <nav class="navigation">
+                <div>
 
-        <a href="index.html">
-            Dashboard
-        </a>
+                    <h2>
+                        Movimentações de estoque
+                    </h2>
 
-        <a href="movements.html">
-            Movimentações
-        </a>
+                    <p>
+                        Registre e acompanhe todas as
+                        entradas e saídas do estoque.
+                    </p>
 
-    </nav>
+                </div>
 
-</header>
-
-
-    <main class="container">
-
-        <section class="products">
-
-            <div class="section-header">
-
-                <h2>Movimentações de estoque</h2>
 
                 <button id="new-movement">
+
                     + Nova movimentação
+
                 </button>
-                <div id="movement-modal" class="modal">
+
+            </div>
+
+
+            <!-- TABELA -->
+
+            <section class="table-card">
+
+                <div class="table-header">
+
+                    <div>
+
+                        <h3>
+                            Histórico de movimentações
+                        </h3>
+
+                        <span>
+                            Registro de entradas e saídas
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <div class="table-container">
+
+                    <table>
+
+                        <thead>
+
+                            <tr>
+
+                                <th>
+                                    Data
+                                </th>
+
+                                <th>
+                                    Produto
+                                </th>
+
+                                <th>
+                                    Tipo
+                                </th>
+
+                                <th>
+                                    Quantidade
+                                </th>
+
+                                <th>
+                                    Descrição
+                                </th>
+
+                            </tr>
+
+                        </thead>
+
+
+                        <tbody id="movement-list">
+
+                            <!-- Movimentações inseridas pelo JavaScript -->
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+            </section>
+
+        </main>
+
+    </div>
+
+</div>
+
+
+<!-- MODAL DE NOVA MOVIMENTAÇÃO -->
+
+<div
+    id="movement-modal"
+    class="modal"
+>
 
     <div class="modal-content">
 
+
         <div class="modal-header">
 
-            <h2>Nova movimentação</h2>
+            <div>
 
-            <button id="close-movement-modal" class="close-button">
+                <h2>
+                    Nova movimentação
+                </h2>
+
+                <span>
+                    Registre uma entrada ou saída
+                    de estoque.
+                </span>
+
+            </div>
+
+
+            <button
+                id="close-movement-modal"
+                class="close-button"
+                type="button"
+            >
                 ×
             </button>
 
         </div>
 
+
         <form id="movement-form">
+
 
             <label for="movement-product">
                 Produto
             </label>
 
-            <select id="movement-product" required>
-                <option value="">Selecione um produto</option>
+            <select
+                id="movement-product"
+                required
+            >
+
+                <option value="">
+                    Selecione um produto
+                </option>
+
             </select>
+
 
             <label for="movement-type">
-                Tipo
+                Tipo de movimentação
             </label>
 
-            <select id="movement-type" required>
-                <option value="">Selecione o tipo</option>
-                <option value="ENTRY">Entrada</option>
-                <option value="EXIT">Saída</option>
+            <select
+                id="movement-type"
+                required
+            >
+
+                <option value="">
+                    Selecione o tipo
+                </option>
+
+                <option value="ENTRY">
+                    Entrada
+                </option>
+
+                <option value="EXIT">
+                    Saída
+                </option>
+
             </select>
+
 
             <label for="movement-quantity">
                 Quantidade
@@ -189,8 +348,10 @@
                 type="number"
                 id="movement-quantity"
                 min="1"
+                placeholder="Ex: 10"
                 required
             >
+
 
             <label for="movement-description">
                 Descrição
@@ -203,9 +364,13 @@
                 required
             >
 
-            <button type="submit">
+
+            <button
+                type="submit"
+            >
                 Registrar movimentação
             </button>
+
 
         </form>
 
@@ -213,53 +378,10 @@
 
 </div>
 
-            </div>
 
+<script src="data/products.js"></script>
 
-            <div class="table-container">
-
-                <table>
-
-                    <thead>
-
-                        <tr>
-
-                            <th>Data</th>
-
-                            <th>Produto</th>
-
-                            <th>Tipo</th>
-
-                            <th>Quantidade</th>
-
-                            <th>Descrição</th>
-
-                        </tr>
-
-                    </thead>
-
-
-                    <tbody id="movement-list">
-
-                    </tbody>
-
-                </table>
-
-            </div>
-
-        </section>
-
-    </main>
-
-    </main>
-
-    </div>
-
-    </div>
-
-
-    <script src="data/products.js"></script>
-    <script src="js/movements.js"></script>
+<script src="js/movements.js"></script>
 
 </body>
 

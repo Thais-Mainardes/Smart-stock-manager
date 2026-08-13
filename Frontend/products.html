@@ -10,7 +10,7 @@
         content="width=device-width, initial-scale=1.0"
     >
 
-    <title>Produto - Smart Stock Manager</title>
+    <title>Produtos - Smart Stock Manager</title>
 
     <link
         rel="stylesheet"
@@ -21,85 +21,253 @@
 
 <body>
 
-    <header class="header">
+<div class="app-layout">
 
-        <div>
-            <h1>Smart Stock Manager</h1>
-            <p>Gerenciamento inteligente de estoque</p>
+    <!-- SIDEBAR -->
+
+    <aside class="sidebar">
+
+        <div class="sidebar-logo">
+
+            <h2>
+                Smart Stock
+            </h2>
+
+            <span>
+                Management System
+            </span>
+
         </div>
 
-        <nav class="navigation">
 
-            <a href="index.html">
-                Dashboard
+        <nav class="sidebar-menu">
+
+            <a
+                href="index.html"
+                class="menu-item"
+            >
+                <span>▦</span>
+                Início
             </a>
 
-            <a href="movements.html">
+
+            <a
+                href="products.html"
+                class="menu-item active"
+            >
+                <span>▣</span>
+                Produtos
+            </a>
+
+
+            <a
+                href="movements.html"
+                class="menu-item"
+            >
+                <span>↕</span>
                 Movimentações
+            </a>
+
+
+            <a
+                href="#"
+                class="menu-item"
+            >
+                <span>▤</span>
+                Fornecedores
+            </a>
+
+
+            <a
+                href="#"
+                class="menu-item"
+            >
+                <span>◫</span>
+                Relatórios
+            </a>
+
+
+            <a
+                href="#"
+                class="menu-item"
+            >
+                <span>⚙</span>
+                Configurações
             </a>
 
         </nav>
 
-    </header>
+
+        <div class="sidebar-footer">
+
+            Smart Stock Manager
+
+            <small>
+                v1.0.0
+            </small>
+
+        </div>
+
+    </aside>
 
 
-    <main class="container">
+    <!-- CONTEÚDO PRINCIPAL -->
 
-        <section class="products">
+    <div class="main-content">
 
-            <div class="section-header">
 
-                <h2>Detalhes do produto</h2>
+        <!-- TOPBAR -->
 
-                <a href="index.html">
-                    <button>
-                        Voltar
-                    </button>
+        <header class="topbar">
+
+            <div>
+
+                <span class="breadcrumb">
+                    Sistema / Produtos
+                </span>
+
+                <h1>
+                    Produtos
+                </h1>
+
+            </div>
+
+
+            <div class="user-area">
+
+                <div class="user-avatar">
+                    A
+                </div>
+
+
+                <div class="user-info">
+
+                    <strong>
+                        Administrador
+                    </strong>
+
+                    <span>
+                        Administrador
+                    </span>
+
+                </div>
+
+            </div>
+
+        </header>
+
+
+        <!-- CONTEÚDO -->
+
+        <main class="dashboard-content">
+
+
+            <div class="product-page-header">
+
+                <div>
+
+                    <h2>
+                        Produtos
+                    </h2>
+
+                    <p>
+                        Gerencie os produtos cadastrados
+                        no estoque.
+                    </p>
+
+                </div>
+
+
+                <a
+                    href="index.html"
+                    class="back-link"
+                >
+                    ← Voltar para Início
                 </a>
 
             </div>
 
 
-            <div class="card">
+            <!-- TABELA -->
 
-                <h3 id="product-name">
-                    Produto
-                </h3>
+            <section class="table-card">
 
-                <p>
-                    <strong>Código:</strong>
-                    <span id="product-code"></span>
-                </p>
+                <div class="table-header">
 
-                <p>
-                    <strong>Categoria:</strong>
-                    <span id="product-category"></span>
-                </p>
+                    <div>
 
-                <p>
-                    <strong>Estoque atual:</strong>
-                    <span id="product-stock"></span>
-                </p>
+                        <h3>
+                            Lista de produtos
+                        </h3>
 
-                <p>
-                    <strong>Estoque mínimo:</strong>
-                    <span id="product-minimum"></span>
-                </p>
+                        <span>
+                            Produtos cadastrados no sistema
+                        </span>
 
-                <p>
-                    <strong>Status:</strong>
-                    <span id="product-status"></span>
-                </p>
+                    </div>
 
-            </div>
-
-        </section>
-
-    </main>
+                </div>
 
 
-    <script src="data/products.js"></script>
-    <script src="js/products.js"></script>
+                <div class="table-container">
+
+                    <table>
+
+                        <thead>
+
+                            <tr>
+
+                                <th>
+                                    Código
+                                </th>
+
+                                <th>
+                                    Produto
+                                </th>
+
+                                <th>
+                                    Categoria
+                                </th>
+
+                                <th>
+                                    Estoque
+                                </th>
+
+                                <th>
+                                    Estoque mínimo
+                                </th>
+
+                                <th>
+                                    Status
+                                </th>
+
+                            </tr>
+
+                        </thead>
+
+
+                        <tbody id="product-list">
+
+                            <!-- Produtos inseridos pelo JavaScript -->
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+            </section>
+
+        </main>
+
+    </div>
+
+</div>
+
+
+<script src="data/products.js"></script>
+
+<script src="js/products.js"></script>
 
 </body>
 

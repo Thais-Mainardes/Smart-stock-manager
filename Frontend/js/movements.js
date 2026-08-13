@@ -1,241 +1,240 @@
 const defaultMovements = [
-    {
-        date: "11/08/2026",
-        product: "Notebook",
-        type: "Entrada",
-        quantity: 10,
-        description: "Compra de novos equipamentos"
-    },
-    {
-        date: "11/08/2026",
-        product: "Mouse",
-        type: "Saída",
-        quantity: 2,
-        description: "Entrega para funcionário"
-    }
+{
+date: "11/08/2026",
+product: "Notebook",
+type: "Entrada",
+quantity: 10,
+description: "Compra de novos equipamentos"
+},
+{
+date: "11/08/2026",
+product: "Mouse",
+type: "Saída",
+quantity: 2,
+description: "Entrega para funcionário"
+}
 ];
 
-
 let movements =
-    JSON.parse(localStorage.getItem("movements")) ||
-    defaultMovements;
-    const savedProducts =
-    localStorage.getItem("products");
+JSON.parse(localStorage.getItem("movements")) ||
+defaultMovements;
+const savedProducts =
+localStorage.getItem("products");
 
 if (savedProducts) {
 
-    const storedProducts =
-        JSON.parse(savedProducts);
+const storedProducts =
+    JSON.parse(savedProducts);
 
-    products.splice(
-        0,
-        products.length,
-        ...storedProducts
-    );
+products.splice(
+    0,
+    products.length,
+    ...storedProducts
+);
+
 
 }
-
 
 function saveMovements() {
 
-    localStorage.setItem(
-        "movements",
-        JSON.stringify(movements)
-    );
+localStorage.setItem(
+    "movements",
+    JSON.stringify(movements)
+);
+
 
 }
-
 
 function displayMovements() {
 
-    const movementList =
-        document.getElementById("movement-list");
+const movementList =
+    document.getElementById("movement-list");
 
-    movementList.innerHTML = "";
+movementList.innerHTML = "";
 
-    movements.forEach(movement => {
+movements.forEach(movement => {
 
-        const row = document.createElement("tr");
+    const row = document.createElement("tr");
 
-        row.innerHTML = `
-            <td>${movement.date}</td>
-            <td>${movement.product}</td>
-            <td>${movement.type}</td>
-            <td>${movement.quantity}</td>
-            <td>${movement.description}</td>
-        `;
+    row.innerHTML = `
+        <td>${movement.date}</td>
+        <td>${movement.product}</td>
+        <td>${movement.type}</td>
+        <td>${movement.quantity}</td>
+        <td>${movement.description}</td>
+    `;
 
-        movementList.appendChild(row);
+    movementList.appendChild(row);
 
-    });
+});
+
 
 }
-
 
 function loadProducts() {
 
-    const productSelect =
-        document.getElementById("movement-product");
+const productSelect =
+    document.getElementById("movement-product");
 
-    productSelect.innerHTML =
-        '<option value="">Selecione um produto</option>';
+productSelect.innerHTML =
+    '<option value="">Selecione um produto</option>';
 
-    products.forEach(product => {
+products.forEach(product => {
 
-        const option =
-            document.createElement("option");
+    const option =
+        document.createElement("option");
 
-        option.value = product.code;
+    option.value = product.code;
 
-        option.textContent =
-            `${product.code} - ${product.name}`;
+    option.textContent =
+        `${product.code} - ${product.name}`;
 
-        productSelect.appendChild(option);
+    productSelect.appendChild(option);
 
-    });
+});
+
+
+}
+
+const newMovementButton =
+document.getElementById("new-movement");
+
+const movementModal =
+document.getElementById("movement-modal");
+
+const closeMovementModal =
+document.getElementById("close-movement-modal");
+
+const movementForm =
+document.getElementById("movement-form");
+
+newMovementButton.addEventListener("click", () => {
+
+movementModal.style.display = "flex";
+
+
+});
+
+closeMovementModal.addEventListener("click", () => {
+
+movementModal.style.display = "none";
+
+
+});
+
+movementForm.addEventListener("submit", event => {
+
+event.preventDefault();
+
+
+const productCode =
+    document.getElementById("movement-product").value;
+
+const type =
+    document.getElementById("movement-type").value;
+
+const quantity =
+    Number(
+        document.getElementById("movement-quantity").value
+    );
+
+const description =
+    document.getElementById("movement-description").value;
+
+
+const product =
+    products.find(
+        product => product.code === productCode
+    );
+
+
+if (!product) {
+
+    alert("Produto não encontrado.");
+
+    return;
 
 }
 
 
-const newMovementButton =
-    document.getElementById("new-movement");
+if (quantity <= 0) {
 
-const movementModal =
-    document.getElementById("movement-modal");
+    alert("A quantidade deve ser maior que zero.");
 
-const closeMovementModal =
-    document.getElementById("close-movement-modal");
+    return;
 
-const movementForm =
-    document.getElementById("movement-form");
+}
 
 
-newMovementButton.addEventListener("click", () => {
-
-    movementModal.style.display = "flex";
-
-});
-
-
-closeMovementModal.addEventListener("click", () => {
-
-    movementModal.style.display = "none";
-
-});
-
-
-movementForm.addEventListener("submit", event => {
-
-    event.preventDefault();
-
-
-    const productCode =
-        document.getElementById("movement-product").value;
-
-    const type =
-        document.getElementById("movement-type").value;
-
-    const quantity =
-        Number(
-            document.getElementById("movement-quantity").value
-        );
-
-    const description =
-        document.getElementById("movement-description").value;
-
-
-    const product =
-        products.find(
-            product => product.code === productCode
-        );
-
-
-    if (!product) {
-
-        alert("Produto não encontrado.");
-
-        return;
-
-    }
-
-
-    if (quantity <= 0) {
-
-        alert("A quantidade deve ser maior que zero.");
-
-        return;
-
-    }
-
-
-    if (type === "EXIT" && quantity > product.stock) {
-
-        alert(
-            "Não é possível realizar a saída. Estoque insuficiente."
-        );
-
-        return;
-
-    }
-
-
-    if (type === "ENTRY") {
-
-        product.stock += quantity;
-
-    }
-
-
-    if (type === "EXIT") {
-
-        product.stock -= quantity;
-
-    }
-
-
-    movements.push({
-
-        date: new Date().toLocaleDateString("pt-BR"),
-
-        product: product.name,
-
-        type: type === "ENTRY"
-            ? "Entrada"
-            : "Saída",
-
-        quantity: quantity,
-
-        description: description
-
-    });
-
-
-    saveMovements();
-    
-    localStorage.setItem(
-    "products",
-    JSON.stringify(products)
-    );
-
-    displayMovements();
-
-    movementForm.reset();
-
-    movementModal.style.display = "none";
-
+if (type === "EXIT" && quantity > product.stock) {
 
     alert(
-        "Movimentação registrada com sucesso!"
+        "Não é possível realizar a saída. Estoque insuficiente."
     );
+
+    return;
+
+}
+
+
+if (type === "ENTRY") {
+
+    product.stock += quantity;
+
+}
+
+
+if (type === "EXIT") {
+
+    product.stock -= quantity;
+
+}
+
+
+movements.push({
+
+    date: new Date().toLocaleDateString("pt-BR"),
+
+    productCode: product.code,
+
+    product: product.name,
+
+    type: type === "ENTRY"
+        ? "Entrada"
+        : "Saída",
+
+    quantity: quantity,
+
+    description: description
 
 });
 
+
+saveMovements();
+
+localStorage.setItem(
+"products",
+JSON.stringify(products)
+);
+
+displayMovements();
+
+movementForm.reset();
+
+movementModal.style.display = "none";
+
+
+alert(
+    "Movimentação registrada com sucesso!"
+);
+
+})
 
 displayMovements();
 
 loadProducts();
 
 localStorage.setItem(
-    "products",
-    JSON.stringify(products)
+"products",
+JSON.stringify(products)
 );

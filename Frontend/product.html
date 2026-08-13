@@ -1,21 +1,24 @@
 <!DOCTYPE html>
+
 <html lang="pt-BR">
 
 <head>
 
-    <meta charset="UTF-8">
+```
+<meta charset="UTF-8">
 
-    <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1.0"
-    >
+<meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+>
 
-    <title>Detalhes do Produto - Smart Stock Manager</title>
+<title>Detalhes do Produto - Smart Stock Manager</title>
 
-    <link
-        rel="stylesheet"
-        href="css/style.css"
-    >
+<link
+    rel="stylesheet"
+    href="css/style.css"
+>
+```
 
 </head>
 
@@ -23,319 +26,320 @@
 
 <div class="app-layout">
 
-    <aside class="sidebar">
+```
+<aside class="sidebar">
 
-        <div class="sidebar-logo">
+    <div class="sidebar-logo">
 
-            <h2>Smart Stock</h2>
+        <h2>Smart Stock</h2>
 
-            <span>
-                Management System
-            </span>
-
-        </div>
-
-
-        <nav class="sidebar-menu">
-
-            <a
-                href="index.html"
-                class="menu-item"
-            >
-                <span>▦</span>
-                Dashboard
-            </a>
-
-
-            <a
-                href="products.html"
-                class="menu-item active"
-            >
-                <span>▣</span>
-                Produtos
-            </a>
-
-
-            <a
-                href="movements.html"
-                class="menu-item"
-            >
-                <span>↕</span>
-                Movimentações
-            </a>
-
-
-            <a
-                href="#"
-                class="menu-item"
-            >
-                <span>▤</span>
-                Fornecedores
-            </a>
-
-
-            <a
-                href="#"
-                class="menu-item"
-            >
-                <span>◫</span>
-                Relatórios
-            </a>
-
-
-            <a
-                href="#"
-                class="menu-item"
-            >
-                <span>⚙</span>
-                Configurações
-            </a>
-
-        </nav>
-
-
-        <div class="sidebar-footer">
-
-            Smart Stock Manager
-
-            <small>
-                v1.0.0
-            </small>
-
-        </div>
-
-    </aside>
-
-
-    <div class="main-content">
-
-        <header class="topbar">
-
-            <div>
-
-                <span class="breadcrumb">
-                    Sistema / Produtos / Detalhes
-                </span>
-
-                <h1>
-                    Detalhes do Produto
-                </h1>
-
-            </div>
-
-
-            <div class="user-area">
-
-                <div class="user-avatar">
-                    A
-                </div>
-
-
-                <div class="user-info">
-
-                    <strong>
-                        Administrador
-                    </strong>
-
-                    <span>
-                        Administrador
-                    </span>
-
-                </div>
-
-            </div>
-
-        </header>
-
-
-        <main class="dashboard-content">
-
-            <div class="product-page-header">
-
-                <div>
-
-                    <a
-                        href="products.html"
-                        class="back-link"
-                    >
-                        ← Voltar para produtos
-                    </a>
-
-                    <h2 id="product-name">
-                        Produto
-                    </h2>
-
-                    <p id="product-code">
-                        Código do produto
-                    </p>
-
-                </div>
-
-
-                <div
-                    id="product-status"
-                    class="status"
-                >
-                    -
-                </div>
-
-            </div>
-
-
-            <section class="product-overview">
-
-                <div class="product-info-card">
-
-                    <h3>
-                        Informações do produto
-                    </h3>
-
-
-                    <div class="product-info-grid">
-
-                        <div>
-
-                            <span>
-                                Código
-                            </span>
-
-                            <strong id="info-code">
-                                -
-                            </strong>
-
-                        </div>
-
-
-                        <div>
-
-                            <span>
-                                Categoria
-                            </span>
-
-                            <strong id="info-category">
-                                -
-                            </strong>
-
-                        </div>
-
-
-                        <div>
-
-                            <span>
-                                Estoque atual
-                            </span>
-
-                            <strong id="info-stock">
-                                -
-                            </strong>
-
-                        </div>
-
-
-                        <div>
-
-                            <span>
-                                Estoque mínimo
-                            </span>
-
-                            <strong id="info-minimum">
-                                -
-                            </strong>
-
-                        </div>
-
-                    </div>
-
-                </div>
-
-
-                <div class="product-stock-card">
-
-                    <span>
-                        Estoque atual
-                    </span>
-
-                    <strong id="stock-number">
-                        0
-                    </strong>
-
-                    <small>
-                        unidades disponíveis
-                    </small>
-
-                </div>
-
-            </section>
-
-
-            <section class="table-card product-history">
-
-                <div class="table-header">
-
-                    <div>
-
-                        <h3>
-                            Histórico de movimentações
-                        </h3>
-
-                        <span>
-                            Entradas e saídas deste produto
-                        </span>
-
-                    </div>
-
-                </div>
-
-
-                <div class="table-container">
-
-                    <table>
-
-                        <thead>
-
-                            <tr>
-
-                                <th>
-                                    Data
-                                </th>
-
-                                <th>
-                                    Tipo
-                                </th>
-
-                                <th>
-                                    Quantidade
-                                </th>
-
-                                <th>
-                                    Observação
-                                </th>
-
-                            </tr>
-
-                        </thead>
-
-
-                        <tbody id="product-movements">
-
-                        </tbody>
-
-                    </table>
-
-                </div>
-
-            </section>
-
-        </main>
+        <span>
+            Management System
+        </span>
 
     </div>
 
-</div>
 
+    <nav class="sidebar-menu">
+
+        <a
+            href="index.html"
+            class="menu-item"
+        >
+            <span>▦</span>
+            Início
+        </a>
+
+
+        <a
+            href="products.html"
+            class="menu-item active"
+        >
+            <span>▣</span>
+            Produtos
+        </a>
+
+
+        <a
+            href="movements.html"
+            class="menu-item"
+        >
+            <span>↕</span>
+            Movimentações
+        </a>
+
+
+        <a
+            href="#"
+            class="menu-item"
+        >
+            <span>▤</span>
+            Fornecedores
+        </a>
+
+
+        <a
+            href="#"
+            class="menu-item"
+        >
+            <span>◫</span>
+            Relatórios
+        </a>
+
+
+        <a
+            href="#"
+            class="menu-item"
+        >
+            <span>⚙</span>
+            Configurações
+        </a>
+
+    </nav>
+
+
+    <div class="sidebar-footer">
+
+        Smart Stock Manager
+
+        <small>
+            v1.0.0
+        </small>
+
+    </div>
+
+</aside>
+
+
+<div class="main-content">
+
+    <header class="topbar">
+
+        <div>
+
+            <span class="breadcrumb">
+                Sistema / Produtos / Detalhes
+            </span>
+
+            <h1>
+                Detalhes do Produto
+            </h1>
+
+        </div>
+
+
+        <div class="user-area">
+
+            <div class="user-avatar">
+                A
+            </div>
+
+
+            <div class="user-info">
+
+                <strong>
+                    Administrador
+                </strong>
+
+                <span>
+                    Administrador
+                </span>
+
+            </div>
+
+        </div>
+
+    </header>
+
+
+    <main class="dashboard-content">
+
+        <div class="product-page-header">
+
+            <div>
+
+                <a
+                    href="products.html"
+                    class="back-link"
+                >
+                    ← Voltar para produtos
+                </a>
+
+                <h2 id="product-name">
+                    Produto
+                </h2>
+
+                <p id="product-code">
+                    Código do produto
+                </p>
+
+            </div>
+
+
+            <div
+                id="product-status"
+                class="status"
+            >
+                -
+            </div>
+
+        </div>
+
+
+        <section class="product-overview">
+
+            <div class="product-info-card">
+
+                <h3>
+                    Informações do produto
+                </h3>
+
+
+                <div class="product-info-grid">
+
+                    <div>
+
+                        <span>
+                            Código
+                        </span>
+
+                        <strong id="info-code">
+                            -
+                        </strong>
+
+                    </div>
+
+
+                    <div>
+
+                        <span>
+                            Categoria
+                        </span>
+
+                        <strong id="info-category">
+                            -
+                        </strong>
+
+                    </div>
+
+
+                    <div>
+
+                        <span>
+                            Estoque atual
+                        </span>
+
+                        <strong id="info-stock">
+                            -
+                        </strong>
+
+                    </div>
+
+
+                    <div>
+
+                        <span>
+                            Estoque mínimo
+                        </span>
+
+                        <strong id="info-minimum">
+                            -
+                        </strong>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="product-stock-card">
+
+                <span>
+                    Estoque atual
+                </span>
+
+                <strong id="stock-number">
+                    0
+                </strong>
+
+                <small>
+                    unidades disponíveis
+                </small>
+
+            </div>
+
+        </section>
+
+
+        <section class="table-card product-history">
+
+            <div class="table-header">
+
+                <div>
+
+                    <h3>
+                        Histórico de movimentações
+                    </h3>
+
+                    <span>
+                        Entradas e saídas deste produto
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <div class="table-container">
+
+                <table>
+
+                    <thead>
+
+                        <tr>
+
+                            <th>
+                                Data
+                            </th>
+
+                            <th>
+                                Tipo
+                            </th>
+
+                            <th>
+                                Quantidade
+                            </th>
+
+                            <th>
+                                Observação
+                            </th>
+
+                        </tr>
+
+                    </thead>
+
+
+                    <tbody id="product-movements">
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </section>
+
+    </main>
+
+</div>
+```
+
+</div>
 
 <script src="data/products.js"></script>
 
-<script src="js/products.js"></script>
+<script src="js/product.js"></script>
 
 </body>
 

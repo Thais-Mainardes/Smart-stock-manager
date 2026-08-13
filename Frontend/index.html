@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -13,360 +14,505 @@
 
     <div class="app-layout">
 
-    <aside class="sidebar">
+        <!-- SIDEBAR -->
 
-        <div class="sidebar-logo">
-            <h2>Smart Stock</h2>
-            <span>Management System</span>
-        </div>
+        <aside class="sidebar">
 
-        <nav class="sidebar-menu">
-
-            <a href="index.html" class="menu-item active">
-                <span>▦</span>
-                Dashboard
-            </a>
-
-            <a href="#" class="menu-item">
-                <span>▣</span>
-                Produtos
-            </a>
-
-            <a href="movements.html" class="menu-item">
-                <span>↕</span>
-                Movimentações
-            </a>
-
-            <a href="#" class="menu-item">
-                <span>▤</span>
-                Fornecedores
-            </a>
-
-            <a href="#" class="menu-item">
-                <span>◫</span>
-                Relatórios
-            </a>
-
-            <a href="#" class="menu-item">
-                <span>⚙</span>
-                Configurações
-            </a>
-
-        </nav>
-
-        <div class="sidebar-footer">
-            Smart Stock Manager
-            <small>v1.0.0</small>
-        </div>
-
-    </aside>
-
-
-    <div class="main-content">
-
-        <header class="topbar">
-
-            <div>
-                <span class="breadcrumb">
-                    Sistema / Dashboard
-                </span>
-
-                <h1>Dashboard</h1>
+            <div class="sidebar-logo">
+                <h2>Smart Stock</h2>
+                <span>Management System</span>
             </div>
 
-            <div class="user-area">
+            <nav class="sidebar-menu">
 
-                <div class="user-avatar">
-                    A
-                </div>
+                <a href="index.html" class="menu-item active">
+                    <span>▦</span>
+                    <span class="menu-text">Início</span>
+                </a>
 
-                <div class="user-info">
+                <a href="products.html" class="menu-item">
+                    <span>▣</span>
+                    <span class="menu-text">Produtos</span>
+                </a>
 
-                    <strong>Administrador</strong>
+                <a href="movements.html" class="menu-item">
+                    <span>↕</span>
+                    <span class="menu-text">Movimentações</span>
+                </a>
 
-                    <span>Administrador</span>
+                <a href="#" class="menu-item">
+                    <span>▤</span>
+                    <span class="menu-text">Fornecedores</span>
+                </a>
+
+                <a href="#" class="menu-item">
+                    <span>◫</span>
+                    <span class="menu-text">Relatórios</span>
+                </a>
+
+                <a href="#" class="menu-item">
+                    <span>⚙</span>
+                    <span class="menu-text">Configurações</span>
+                </a>
+
+            </nav>
+
+            <div class="sidebar-footer">
+                Smart Stock Manager
+                <small>v1.0.0</small>
+            </div>
+
+        </aside>
+
+
+        <!-- CONTEÚDO PRINCIPAL -->
+
+        <div class="main-content">
+
+            <!-- TOPBAR -->
+
+            <header class="topbar">
+
+                <div>
+
+                    <span class="breadcrumb">
+                        Sistema / Início
+                    </span>
+
+                    <h1>Dashboard</h1>
 
                 </div>
 
-            </div>
+                <div class="user-area">
 
-        </header>
+                    <div class="user-avatar">
+                        A
+                    </div>
 
+                    <div class="user-info">
 
-        <main class="dashboard-content">
+                        <strong>Administrador</strong>
 
-   <header class="header">
+                        <span>Administrador</span>
 
-    <div>
-        <h1>Smart Stock Manager</h1>
-        <p>Gerenciamento Inteligente de Estoque</p>
-    </div>
+                    </div>
 
-    <nav class="navigation">
-
-        <a href="index.html">
-            Dashboard
-        </a>
-
-        <a href="movements.html">
-            Movimentações
-        </a>
-
-    </nav>
-
-</header>
-
-    <main class="container">
-
-        <section class="dashboard-cards">
-
-    <div class="dashboard-card">
-
-        <span class="card-title">
-            Produtos
-        </span>
-
-        <strong id="total-products">
-            0
-        </strong>
-
-    </div>
-
-
-    <div class="dashboard-card">
-
-        <span class="card-title">
-            Itens em estoque
-        </span>
-
-        <strong id="total-stock">
-            0
-        </strong>
-
-    </div>
-
-
-    <div class="dashboard-card">
-
-        <span class="card-title">
-            Estoque baixo
-        </span>
-
-        <strong id="low-stock">
-            0
-        </strong>
-
-    </div>
-
-
-    <div class="dashboard-card">
-
-        <span class="card-title">
-            Movimentações
-        </span>
-
-        <strong id="total-movements">
-            0
-        </strong>
-
-    </div>
-
-</section>
-
-        <section class="dashboard">
-            <h2>Dashboard</h2>
-
-            <div class="cards">
-
-                <div class="card">
-                    <h3>Total de produtos</h3>
-                    <p id="total-products">0</p>
                 </div>
 
-                <div class="card">
-                    <h3>Estoque baixo</h3>
-                    <p id="low-stock">0</p>
+            </header>
+
+
+            <!-- DASHBOARD -->
+
+            <main class="dashboard-content">
+
+                <!-- CABEÇALHO -->
+
+                <section class="page-header">
+
+                    <div>
+
+                        <h2>Visão geral do estoque</h2>
+
+                        <p>
+                            Acompanhe os principais indicadores do seu estoque.
+                        </p>
+
+                    </div>
+
+                    <a
+                        href="movements.html"
+                        class="primary-button"
+                    >
+                        + Nova movimentação
+                    </a>
+
+                </section>
+
+
+                <!-- CARDS -->
+
+                <section class="dashboard-cards">
+
+                    <div class="dashboard-card">
+
+                        <div class="card-icon blue">
+                            📦
+                        </div>
+
+                        <div class="card-content">
+
+                            <span class="card-title">
+                                Produtos
+                            </span>
+
+                            <strong id="total-products">
+                                0
+                            </strong>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="dashboard-card">
+
+                        <div class="card-icon green">
+                            ✓
+                        </div>
+
+                        <div class="card-content">
+
+                            <span class="card-title">
+                                Itens em estoque
+                            </span>
+
+                            <strong id="total-stock">
+                                0
+                            </strong>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="dashboard-card">
+
+                        <div class="card-icon orange">
+                            ⚠
+                        </div>
+
+                        <div class="card-content">
+
+                            <span class="card-title">
+                                Estoque baixo
+                            </span>
+
+                            <strong id="low-stock">
+                                0
+                            </strong>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="dashboard-card">
+
+                        <div class="card-icon purple">
+                            ↕
+                        </div>
+
+                        <div class="card-content">
+
+                            <span class="card-title">
+                                Movimentações
+                            </span>
+
+                            <strong id="total-movements">
+                                0
+                            </strong>
+
+                        </div>
+
+                    </div>
+
+                </section>
+
+
+                <!-- PRODUTOS -->
+
+                <section class="products-section">
+
+                    <div class="section-header">
+
+                        <div>
+
+                            <h2>Produtos</h2>
+
+                            <p>
+                                Produtos cadastrados no estoque.
+                            </p>
+
+                        </div>
+
+                        <button
+                            id="add-product"
+                            class="primary-button"
+                        >
+                            + Adicionar produto
+                        </button>
+
+                    </div>
+
+
+                    <div class="table-container">
+
+                        <table>
+
+                            <thead>
+
+                                <tr>
+
+                                    <th>Código</th>
+                                    <th>Produto</th>
+                                    <th>Categoria</th>
+                                    <th>Estoque</th>
+                                    <th>Mínimo</th>
+                                    <th>Status</th>
+                                    <th>Ações</th>
+
+                                </tr>
+
+                            </thead>
+
+                            <tbody id="product-list">
+
+                                <!-- Produtos inseridos pelo JavaScript -->
+
+                            </tbody>
+
+                        </table>
+
+                    </div>
+
+                </section>
+
+
+                <!-- GRÁFICOS -->
+
+                <section class="charts-section">
+
+                    <div class="section-header">
+
+                        <div>
+
+                            <h2>Indicadores</h2>
+
+                            <p>
+                                Análise visual do estoque e das movimentações.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="charts">
+
+                        <!-- ESTOQUE POR PRODUTO -->
+
+                        <div class="chart-card">
+
+                            <h3>
+                                Estoque por Produto
+                            </h3>
+
+                            <div class="chart-container">
+
+                                <canvas id="stock-chart"></canvas>
+
+                            </div>
+
+                        </div>
+
+
+                        <!-- STATUS -->
+
+                        <div class="chart-card">
+
+                            <h3>
+                                Status do Estoque
+                            </h3>
+
+                            <div class="chart-container">
+
+                                <canvas id="status-chart"></canvas>
+
+                            </div>
+
+                        </div>
+
+
+                        <!-- ENTRADAS E SAÍDAS -->
+
+                        <div class="chart-card chart-full">
+
+                            <h3>
+                                Entradas x Saídas
+                            </h3>
+
+                            <div class="chart-container">
+
+                                <canvas id="movement-chart"></canvas>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </section>
+
+
+                <!-- ANÁLISE -->
+
+                <section class="analysis-section">
+
+                    <div class="analysis-card">
+
+                        <div class="section-header">
+
+                            <div>
+
+                                <h2>Análise do estoque</h2>
+
+                                <p>
+                                    Informações automáticas sobre a situação atual.
+                                </p>
+
+                            </div>
+
+                        </div>
+
+                        <div id="stock-analysis">
+
+                            <p>
+                                Analisando estoque...
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </section>
+
+            </main>
+
+        </div>
+
+    </div>
+
+
+    <!-- MODAL DE PRODUTO -->
+
+    <div id="product-modal" class="modal">
+
+        <div class="modal-content">
+
+            <div class="modal-header">
+
+                <div>
+
+                    <h2>
+                        Adicionar produto
+                    </h2>
+
+                    <p>
+                        Cadastre um novo produto no estoque.
+                    </p>
+
                 </div>
 
-                <div class="card">
-                    <h3>Movimentações</h3>
-                    <p id="total-movements">0</p>
-                </div>
+                <button
+                    id="close-modal"
+                    class="close-button"
+                    type="button"
+                >
+                    ×
+                </button>
 
             </div>
-        </section>
 
-        <section class="products">
-            <div class="section-header">
-                <h2>Produtos</h2>
 
-                <button id="add-product">
-    + Adicionar produto
-</button>
+            <form id="product-form">
 
-<div id="product-modal" class="modal">
+                <label for="product-code">
+                    Código
+                </label>
 
-    <div class="modal-content">
+                <input
+                    type="text"
+                    id="product-code"
+                    placeholder="Ex: NB001"
+                    required
+                >
 
-        <div class="modal-header">
-            <h2>Adicionar produto</h2>
 
-            <button id="close-modal" class="close-button">
-                ×
-            </button>
-        </div>
+                <label for="product-name">
+                    Nome do produto
+                </label>
 
-        <form id="product-form">
+                <input
+                    type="text"
+                    id="product-name"
+                    placeholder="Ex: Notebook"
+                    required
+                >
 
-            <label for="product-code">
-                Código
-            </label>
 
-            <input
-                type="text"
-                id="product-code"
-                required
-            >
+                <label for="product-category">
+                    Categoria
+                </label>
 
-            <label for="product-name">
-                Nome do produto
-            </label>
+                <input
+                    type="text"
+                    id="product-category"
+                    placeholder="Ex: Eletrônicos"
+                    required
+                >
 
-            <input
-                type="text"
-                id="product-name"
-                required
-            >
 
-            <label for="product-category">
-                Categoria
-            </label>
+                <label for="product-stock">
+                    Estoque atual
+                </label>
 
-            <input
-                type="text"
-                id="product-category"
-                required
-            >
+                <input
+                    type="number"
+                    id="product-stock"
+                    min="0"
+                    required
+                >
 
-            <label for="product-stock">
-                Estoque atual
-            </label>
 
-            <input
-                type="number"
-                id="product-stock"
-                min="0"
-                required
-            >
+                <label for="product-minimum">
+                    Estoque mínimo
+                </label>
 
-            <label for="product-minimum">
-                Estoque mínimo
-            </label>
+                <input
+                    type="number"
+                    id="product-minimum"
+                    min="0"
+                    required
+                >
 
-            <input
-                type="number"
-                id="product-minimum"
-                min="0"
-                required
-            >
 
-            <button type="submit">
-                Cadastrar produto
-            </button>
+                <button
+                    type="submit"
+                    class="primary-button"
+                >
+                    Cadastrar produto
+                </button>
 
-        </form>
-
-    </div>
-
-</div>
-            </div>
-
-            <div class="table-container">
-
-                <table>
-
-                    <thead>
-                        <tr>
-                            <th>Código</th>
-                            <th>Produto</th>
-                            <th>Categoria</th>
-                            <th>Estoque</th>
-                            <th>Estoque mínimo</th>
-                            <th>Status</th>
-                            <th>Ações</th>
-                        </tr>
-                    </thead>
-
-                    <tbody id="product-list">
-                        <!-- Os produtos serão inseridos pelo JavaScript -->
-                    </tbody>
-
-                </table>
-
-            </div>
-        </section>
-
-    </main>
-
-    <section class="charts">
-
-    <div class="chart-card">
-
-        <h2>Estoque por Produto</h2>
-
-        <div class="chart-container">
-            <canvas id="stock-chart"></canvas>
-        </div>
-
-    </div>
-
-    <div class="chart-card">
-
-        <h2>Status do Estoque</h2>
-
-        <div class="chart-container">
-            <canvas id="status-chart"></canvas>
-        </div>
-
-        <div class="chart-card">
-
-    <h2>Entradas x Saídas</h2>
-
-    <div class="chart-container">
-        <canvas id="movement-chart"></canvas>
-    </div>
-
-    </div>
-
-    </div>
-
-    <section class="analysis-section">
-
-    <div class="analysis-card">
-
-        <h2>Análise do estoque</h2>
-
-        <div id="stock-analysis">
-
-            <p>
-                Analisando estoque...
-            </p>
+            </form>
 
         </div>
 
     </div>
 
-</section>
 
-</main>
+    <!-- BIBLIOTECA DE GRÁFICOS -->
 
-</div>
-
-</div>
-
-</section>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <!-- DADOS -->
+
     <script src="data/products.js"></script>
+
+    <!-- APLICAÇÃO -->
+
     <script src="js/app.js"></script>
+
 </body>
+
 </html>

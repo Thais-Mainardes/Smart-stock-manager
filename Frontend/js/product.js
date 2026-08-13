@@ -186,12 +186,10 @@ function displayMovements() {
         return;
     }
 
-
     const movements =
         JSON.parse(
             localStorage.getItem("movements")
         ) || [];
-
 
     const productMovements =
         movements.filter(
@@ -200,13 +198,9 @@ function displayMovements() {
                 product.code
         );
 
-
     movementsContainer.innerHTML = "";
 
-
-    if (
-        productMovements.length === 0
-    ) {
+    if (productMovements.length === 0) {
 
         movementsContainer.innerHTML = `
 
@@ -217,7 +211,7 @@ function displayMovements() {
                     style="text-align: center;"
                 >
                     Nenhuma movimentação
-                    registrada.
+                    registrada para este produto.
                 </td>
 
             </tr>
@@ -225,18 +219,23 @@ function displayMovements() {
         `;
 
         return;
-
     }
-
 
     productMovements.forEach(
         movement => {
 
             const row =
-                document.createElement(
-                    "tr"
-                );
+                document.createElement("tr");
 
+            const quantity =
+                movement.type === "Entrada"
+                    ? `+${movement.quantity}`
+                    : `-${movement.quantity}`;
+
+            const typeClass =
+                movement.type === "Entrada"
+                    ? "movement-entry"
+                    : "movement-exit";
 
             row.innerHTML = `
 
@@ -245,27 +244,29 @@ function displayMovements() {
                 </td>
 
                 <td>
-                    ${movement.type}
+
+                    <span class="${typeClass}">
+                        ${movement.type}
+                    </span>
+
                 </td>
 
                 <td>
-                    ${movement.quantity}
+                    <strong>
+                        ${quantity}
+                    </strong>
                 </td>
 
                 <td>
-                    ${movement.observation || "-"}
+                    ${movement.description || "-"}
                 </td>
 
             `;
 
-
-            movementsContainer.appendChild(
-                row
-            );
+            movementsContainer.appendChild(row);
 
         }
     );
-
 }
 
 
