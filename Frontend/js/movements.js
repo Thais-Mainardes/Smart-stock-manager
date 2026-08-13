@@ -1,39 +1,67 @@
+// =========================================
+// SMART STOCK MANAGER
+// MOVEMENTS.JS
+// =========================================
+
+
+// =========================================
+// MOVIMENTAÇÕES INICIAIS
+// =========================================
+
 const defaultMovements = [
-{
-date: "11/08/2026",
-product: "Notebook",
-type: "Entrada",
-quantity: 10,
-description: "Compra de novos equipamentos"
-},
-{
-date: "11/08/2026",
-product: "Mouse",
-type: "Saída",
-quantity: 2,
-description: "Entrega para funcionário"
-}
+
+    {
+        date: "11/08/2026",
+        productCode: "NB001",
+        product: "Notebook",
+        type: "Entrada",
+        quantity: 10,
+        description: "Compra de novos equipamentos"
+    },
+
+    {
+        date: "11/08/2026",
+        productCode: "MS001",
+        product: "Mouse",
+        type: "Saída",
+        quantity: 2,
+        description: "Entrega para funcionário"
+    }
+
 ];
 
+
+// =========================================
+// CARREGAMENTO DAS MOVIMENTAÇÕES
+// =========================================
+
 let movements =
-JSON.parse(localStorage.getItem("movements")) ||
-defaultMovements;
+    JSON.parse(
+        localStorage.getItem("movements")
+    ) || defaultMovements;
+
+
+// =========================================
+// CARREGAMENTO DOS PRODUTOS
+// =========================================
+
 const savedProducts =
-localStorage.getItem("products");
+    localStorage.getItem("products");
+
 
 if (savedProducts) {
 
-const storedProducts =
-    JSON.parse(savedProducts);
+    const storedProducts =
+        JSON.parse(savedProducts);
 
-products.splice(
-    0,
-    products.length,
-    ...storedProducts
-);
-
+    products.splice(
+        0,
+        products.length,
+        ...storedProducts
+    );
 
 }
+
 
 function saveMovements() {
 
